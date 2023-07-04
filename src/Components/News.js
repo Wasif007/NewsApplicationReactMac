@@ -66,7 +66,7 @@ export class News extends Component {
         <div className="row">
        {!this.state.loading && this.state.article.map((element)=>{
        return <div className="col-md-4" key={element.url}>  
-       <Newscomponent name={!element.title?"No title Available":element.title.slice(0,50)} desc={!element.description?"No Description Available":element.description.slice(0,75)} imageUrl={!element.urlToImage?"https://images.hindustantimes.com/tech/img/2023/07/01/1600x900/8c60a97e945c8d1bd76c3d1e3d0dcb81jpg_1655084471263_1688178609777.jpg":element.urlToImage} urlTo={element.url}/>
+       <Newscomponent source={element.source.name} date={element.publishedAt} aurthor={!element.author?"Unkownn":element.author} name={!element.title?"No title Available":element.title.slice(0,50)} desc={!element.description?"No Description Available":element.description.slice(0,75)} imageUrl={!element.urlToImage?"https://images.hindustantimes.com/tech/img/2023/07/01/1600x900/8c60a97e945c8d1bd76c3d1e3d0dcb81jpg_1655084471263_1688178609777.jpg":element.urlToImage} urlTo={element.url}/>
         </div>
         })
        }
