@@ -47,7 +47,7 @@ export class News extends Component {
     return (
       <div>
         <div className="container my-3">
-          <h2 className="text-center">CatNews-Application</h2>
+          <h2 className="text-center">{this.capitalizeFirstLetter(this.props.category)} Related News</h2>
           {this.state.loading && <Spinner />}
           <div className="row">
             {!this.state.loading &&
