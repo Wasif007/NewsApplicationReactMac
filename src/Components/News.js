@@ -25,14 +25,10 @@ export class News extends Component {
     const response = await fetch(
       `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=232940725ff745df866efb9778420f11&page=${value}&pageSize=${this.props.pageSize}`
     );
-    this.setState({
-      loading: true,
-    });
     const jsonData = await response.json();
     this.setState({
       article: jsonData.articles,
       totalResults: jsonData.totalResults,
-      loading: false,
       page: value,
     });
   }
@@ -50,14 +46,10 @@ export class News extends Component {
         this.state.page + 1
       }&pageSize=${this.props.pageSize}`
     );
-    this.setState({
-      loading: true,
-    });
     const jsonData = await response.json();
     this.setState({
       article: this.state.article.concat(jsonData.articles),
       totalResults: jsonData.totalResults,
-      loading: false,
       page: this.state.page + 1,
     });
   };
