@@ -24,7 +24,7 @@ export class News extends Component {
   async updateData(value) {
     this.props.setProgress(0);
     const response = await fetch(
-      `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=232940725ff745df866efb9778420f11&page=${value}&pageSize=${this.props.pageSize}`
+      `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=${this.props.apikey}&page=${value}&pageSize=${this.props.pageSize}`
     );
     this.props.setProgress(30);
     const jsonData = await response.json();
@@ -46,7 +46,7 @@ export class News extends Component {
         this.props.country
       }&category=${
         this.props.category
-      }&apiKey=232940725ff745df866efb9778420f11&page=${
+      }&apiKey=${this.props.apikey}&page=${
         this.state.page + 1
       }&pageSize=${this.props.pageSize}`
     );
@@ -62,6 +62,7 @@ export class News extends Component {
       <div>
         <div className="container my-3">
           <h2 className="text-center">
+            {console.log(this.props.apiKey)}
             {this.capitalizeFirstLetter(this.props.category)} Related News
           </h2>
           <InfiniteScroll
