@@ -22,15 +22,19 @@ export class News extends Component {
   }
 
   async updateData(value) {
+    this.props.setProgress(0);
     const response = await fetch(
       `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=232940725ff745df866efb9778420f11&page=${value}&pageSize=${this.props.pageSize}`
     );
+    this.props.setProgress(30);
     const jsonData = await response.json();
+    this.props.setProgress(50);
     this.setState({
       article: jsonData.articles,
       totalResults: jsonData.totalResults,
       page: value,
     });
+    this.props.setProgress(100);
   }
   async componentDidMount() {
     this.updateData(this.state.page);
