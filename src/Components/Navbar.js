@@ -4,8 +4,8 @@ import { Link } from "react-router-dom";
 const Navbar =()=> {
     return (
       <div>
-        <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
-          <Link className="navbar-brand" to="/">
+        <nav className="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
+          <Link className="navbar-brand"  to="/">
             CatNews App
           </Link>
           <button

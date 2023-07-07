@@ -9,7 +9,7 @@ const News =(props)=> {
     return string.charAt(0).toUpperCase() + string.slice(1);
   };
   const [article,setArticle]=useState([]);
-  const [loading,setLoading]=useState(true);
+  // const [loading,setLoading]=useState(true);
   const [page,setPage]=useState(1);
   const [totalResults,setTotalResults]=useState(0);
   // document.title = `${capitalizeFirstLetter(
@@ -32,6 +32,7 @@ const News =(props)=> {
   }
   useEffect(() => {
     updateData(page);
+    // eslint-disable-next-line
   }, []);
 
 
@@ -54,7 +55,7 @@ const News =(props)=> {
     return (
       <div>
         <div className="container my-3">
-          <h2 className="text-center">
+          <h2 className="text-center" style={{marginTop:"90px"}}>
             {capitalizeFirstLetter(props.category)} Related News
           </h2>
           <InfiniteScroll
